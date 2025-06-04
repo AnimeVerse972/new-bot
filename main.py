@@ -101,9 +101,9 @@ async def handle_code(message: types.Message):
         await message.answer(f"🔍 Topildi:\n\n{anime_posts[code]}")
     elif code in ["📢 Reklama", "💼 Homiylik"]:
         if code == "📢 Reklama":
-            await message.answer("📢 Bu yerda bot reklama ma'lumotlari bo'ladi.")
+            await message.answer("Reklama uchun @DiyorbekPTMA ga murojat qiling.Faqat reklama boyicha!")
         elif code == "💼 Homiylik":
-            await message.answer("💼 Bu yerda homiylik haqida ma'lumot beriladi.")
+            await message.answer("Homiylik uchun karta 8800904257677885")
     else:
         await message.answer("❌ Bunday kod topilmadi. Iltimos, to‘g‘ri anime kodini yuboring.")
 
