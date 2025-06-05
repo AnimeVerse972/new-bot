@@ -7,7 +7,9 @@ from keep_alive import keep_alive
 
 # .env orqali token olish
 API_TOKEN = os.environ.get('BOT_TOKEN')
-CHANNELS = ['@AniVerseClip']
+CHANNELS = ['@AniVerseClip','@StudioNovaOfficial']
+
+ADMINS = ['6486825926','7575041003']  # O‘rningizga o‘z Telegram ID'ingizni yozing
 
 logging.basicConfig(level=logging.INFO)
 
