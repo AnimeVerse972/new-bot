@@ -94,7 +94,8 @@ async def handle_code(message: types.Message):
         "33": "*O'zga dunyoda oilali boʻldim*\n\nhttps://t.me/AniVerseClip/638",
         "34": "*Sehr Yaratuvchi: Boshqa dunyoda qanday qilib sehr yaratish mumkin*\n\nhttps://t.me/AniVerseClip/665",
         "35": "*Farmatseft monologi*\n\nhttps://t.me/AniVerseClip/696",
-        "36": "*Va'da qilingan Neverland*\n\nhttps://t.me/AniVerseClip/744"
+        "36": "*Va'da qilingan Neverland*\n\nhttps://t.me/AniVerseClip/744",
+        "37": "*Meni kechiring buyuk hojam*\n\nhttps://t.me/AniVerseClip/776",
     }
 
     code = message.text.strip()
