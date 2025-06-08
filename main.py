@@ -96,6 +96,7 @@ async def handle_code(message: types.Message):
         "35": "*Farmatseft monologi*\n\nhttps://t.me/AniVerseClip/696",
         "36": "*Va'da qilingan Neverland*\n\nhttps://t.me/AniVerseClip/744",
         "37": "*Meni kechiring buyuk hojam*\n\nhttps://t.me/AniVerseClip/776",
+        "38": "*Qahramonlikdan voz kechib*\n\nhttps://t.me/AniVerseClip/789",
     }
 
     code = message.text.strip()
