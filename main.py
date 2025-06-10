@@ -2,7 +2,8 @@ import os
 import logging
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from keep_alive import keep_alive
 
 # .env orqali token olish
@@ -59,52 +60,57 @@ async def handle_code(message: types.Message):
             return
 
     anime_posts = {
-        "1": "*Donishmandning qayta tug'ilishi*\n\nhttps://t.me/AniVerseClip/10",
-        "2": "*Baholovchi*\n\nhttps://t.me/AniVerseClip/23",
-        "3": "*O'ta ehtiyotkor o'lmas qahramon*\n\nhttps://t.me/AniVerseClip/35",
-        "4": "*Arifureta*\n\nhttps://t.me/AniVerseClip/49",
-        "5": "*Qalqon qahramoni*\n\nhttps://t.me/AniVerseClip/76",
-        "6": "*Qalqon qahramoni 2-fasl*\n\nhttps://t.me/AniVerseClip/104",
-        "7": "*Oxiridan keyingi boshlanish*\n\nhttps://t.me/AniVerseClip/121",
-        "8": "*Daho Shifokorning soyadagi yangi hayoti*\n\nhttps://t.me/AniVerseClip/127",
-        "9": "*Qahramon Bo'lish X*\n\nhttps://t.me/AniVerseClip/131",
-        "10": "*Real dunyodan haqiqiyroq o'yin*\n\nhttps://t.me/AniVerseClip/135",
-        "11": "*Omadsizning qayta tug'ilishi*\n\nhttps://t.me/AniVerseClip/148",
-        "12": "*O'zga dunyoda yolg'iz hujum*\n\nhttps://t.me/AniVerseClip/200",
-        "13": "*Yigit va qiz o'rtasida do'stlik bo'lishi mumkinmi*\n\nhttps://t.me/AniVerseClip/216",
-        "14": "*Yengilmas Bahamut yilnomalari*\n\nhttps://t.me/AniVerseClip/222",
-        "15": "*Shikastlanishni istamasdim, shuning uchun himoyamni kuchaytirdim*\n\nhttps://t.me/AniVerseClip/235",
-        "16": "*Jodugarlar jangi*\n\nhttps://t.me/AniVerseClip/260",
-        "17": "*Kumush qirolning qayta tug'ulishi*\n\nhttps://t.me/AniVerseClip/360",
-        "18": "*Elf rafiqamni qanday sevishim mumkin*\n\nhttps://t.me/AniVerseClip/379",
-        "19": "*O'lik odamlar: Mo'jizalar mamlakati*\n\nhttps://t.me/AniVerseClip/392",
-        "20": "*Meni oyga olib ket*\n\nhttps://t.me/AniVerseClip/405",
-        "21": "*Goblinlar Qotili*\n\nhttps://t.me/AniVerseClip/430",
-        "22": "*Soyada ko'tarilish*\n\nhttps://t.me/AniVerseClip/309",
-        "23": "*Men kuchsiz qobilyatim bilan eng zo'ri bo'ldim va hammani yo'q qilaman*\n\nhttps://t.me/AniVerseClip/343",
-        "24": "*Zanjirli qul*\n\nhttps://t.me/AniVerseClip/501",
-        "25": "*Donishmandning nabirasi*\n\nhttps://t.me/AniVerseClip/514",
-        "26": "*Bu ajoyib dunyo*\n\nhttps://t.me/AniVerseClip/462",
-        "27": "*Qora chaqiruvchi*\n\nhttps://t.me/AniVerseClip/527",
-        "28": "*Mexanik qo'llar*\n\nhttps://t.me/AniVerseClip/542",
-        "29": "*O'zga dunyoda darajamni ko'tarib, bu dunyoda ham tengsiz bo'ldim*\n\nhttps://t.me/AniVerseClip/555",
-        "30": "*Kemono voqeasi*\n\nhttps://t.me/AniVerseClip/569",
-        "31": "*O'lim kundaligi*\n\nhttps://t.me/AniVerseClip/586",
-        "32": "*Abadiylik qo'riqchisi*\n\nhttps://t.me/AniVerseClip/624",
-        "33": "*O'zga dunyoda oilali boʻldim*\n\nhttps://t.me/AniVerseClip/638",
-        "34": "*Sehr Yaratuvchi: Boshqa dunyoda qanday qilib sehr yaratish mumkin*\n\nhttps://t.me/AniVerseClip/665",
-        "35": "*Farmatseft monologi*\n\nhttps://t.me/AniVerseClip/696",
-        "36": "*Va'da qilingan Neverland*\n\nhttps://t.me/AniVerseClip/744",
-        "37": "*Meni kechiring buyuk hojam*\n\nhttps://t.me/AniVerseClip/776",
-        "38": "*Qahramonlikdan voz kechib*\n\nhttps://t.me/AniVerseClip/789",
-        "39": "*Ochko'z berserk*\n\nhttps://t.me/AniVerseClip/802",
-        "40": "*Boshqa dunyodan muomoli bolalar*\n\nhttps://t.me/AniVerseClip/815",
+        "1": {"channel": "@AniVerseClip", "message_id": 10},
+        "2": {"channel": "@AniVerseClip", "message_id": 23},
+        "3": {"channel": "@AniVerseClip", "message_id": 35},
+        "4": {"channel": "@AniVerseClip", "message_id": 49},
+        "5": {"channel": "@AniVerseClip", "message_id": 76},
+        "6": {"channel": "@AniVerseClip", "message_id": 104},
+        "7": {"channel": "@AniVerseClip", "message_id": 121},
+        "8": {"channel": "@AniVerseClip", "message_id": 127},
+        "9": {"channel": "@AniVerseClip", "message_id": 131},
+        "10": {"channel": "@AniVerseClip", "message_id": 135},
+        "11": {"channel": "@AniVerseClip", "message_id": 148},
+        "12": {"channel": "@AniVerseClip", "message_id": 200},
+        "13": {"channel": "@AniVerseClip", "message_id": 216},
+        "14": {"channel": "@AniVerseClip", "message_id": 222},
+        "15": {"channel": "@AniVerseClip", "message_id": 235},
+        "16": {"channel": "@AniVerseClip", "message_id": 260},
+        "17": {"channel": "@AniVerseClip", "message_id": 360},
+        "18": {"channel": "@AniVerseClip", "message_id": 379},
+        "19": {"channel": "@AniVerseClip", "message_id": 392},
+        "20": {"channel": "@AniVerseClip", "message_id": 405},
+        "21": {"channel": "@AniVerseClip", "message_id": 430},
+        "22": {"channel": "@AniVerseClip", "message_id": 309},
+        "23": {"channel": "@AniVerseClip", "message_id": 343},
+        "24": {"channel": "@AniVerseClip", "message_id": 501},
+        "25": {"channel": "@AniVerseClip", "message_id": 514},
+        "26": {"channel": "@AniVerseClip", "message_id": 462},
+        "27": {"channel": "@AniVerseClip", "message_id": 527},
+        "28": {"channel": "@AniVerseClip", "message_id": 542},
+        "29": {"channel": "@AniVerseClip", "message_id": 555},
+        "30": {"channel": "@AniVerseClip", "message_id": 569},
+        "31": {"channel": "@AniVerseClip", "message_id": 586},
+        "32": {"channel": "@AniVerseClip", "message_id": 624},
+        "33": {"channel": "@AniVerseClip", "message_id": 638},
+        "34": {"channel": "@AniVerseClip", "message_id": 665},
+        "35": {"channel": "@AniVerseClip", "message_id": 696},
+        "36": {"channel": "@AniVerseClip", "message_id": 744},
+        "37": {"channel": "@AniVerseClip", "message_id": 776},
+        "38": {"channel": "@AniVerseClip", "message_id": 789},
+        "39": {"channel": "@AniVerseClip", "message_id": 802},
+        "40": {"channel": "@AniVerseClip", "message_id": 815},
     }
 
     code = message.text.strip()
 
     if code in anime_posts:
-        await message.answer(f"🔍 Topildi:\n\n{anime_posts[code]}")
+        channel = anime_posts[code]["channel"]
+        message_id = anime_posts[code]["message_id"]
+        try:
+            await bot.copy_message(chat_id=user_id, from_chat_id=channel, message_id=message_id)
+        except Exception as e:
+            await message.answer(f"Xatolik yuz berdi: {e}")
     elif code in ["📢 Reklama", "💼 Homiylik"]:
         if code == "📢 Reklama":
             await message.answer("Reklama uchun @DiyorbekPTMA ga murojat qiling.Faqat reklama boyicha!")
