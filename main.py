@@ -59,7 +59,7 @@ async def handle_code(message: types.Message):
             await message.answer(f"⚠️ {channel} kanal tekshiruvida xatolik. Iltimos, keyinroq urinib ko‘ring.")
             return
 
-    anime_posts = {
+   anime_posts = {
         "1": {"channel": "@AniVerseClip", "message_id": 10},
         "2": {"channel": "@AniVerseClip", "message_id": 23},
         "3": {"channel": "@AniVerseClip", "message_id": 35},
@@ -106,11 +106,14 @@ async def handle_code(message: types.Message):
 
     if code in anime_posts:
         channel = anime_posts[code]["channel"]
-        message_id = anime_posts[code]["message_id"]
-        try:
-            await bot.copy_message(chat_id=user_id, from_chat_id=channel, message_id=message_id)
-        except Exception as e:
-            await message.answer(f"Xatolik yuz berdi: {e}")
+        start_message_id = anime_posts[code]["start_message_id"]
+        for i in range(11):  # 11 ta xabar jo'natamiz (boshlang'ich xabar + keyingi 10 ta)
+            message_id = start_message_id + i
+            try:
+                await bot.copy_message(chat_id=user_id, from_chat_id=channel, message_id=message_id)
+            except Exception as e:
+                await message.answer(f"Xatolik yuz berdi: {e}")
+                break  # Agar xatolik yuz bersa, siklni to'xtatamiz
     elif code in ["📢 Reklama", "💼 Homiylik"]:
         if code == "📢 Reklama":
             await message.answer("Reklama uchun @DiyorbekPTMA ga murojat qiling.Faqat reklama boyicha!")
