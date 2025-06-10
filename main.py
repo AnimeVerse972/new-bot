@@ -112,7 +112,8 @@ async def handle_code(message: types.Message):
         watch_button = InlineKeyboardButton("TOMOSHA QILISH", url=f"https://t.me/{channel.strip('@')}/{message_id}")
         keyboard.add(watch_button)
         
-        await message.answer("✅ Mana natija:", reply_markup=keyboard)
+        # Xabarni tugma bilan birga yuborish
+        await bot.copy_message(chat_id=user_id, from_chat_id=channel, message_id=message_id, reply_markup=keyboard)
     elif code in ["📢 Reklama", "💼 Homiylik"]:
         if code == "📢 Reklama":
             await message.answer("Reklama uchun @DiyorbekPTMA ga murojat qiling.Faqat reklama boyicha!")
