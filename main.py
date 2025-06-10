@@ -60,8 +60,8 @@ async def handle_code(message: types.Message):
             return
 
     anime_posts = {
-        "1": {"channel": "@AniVerseClip", "message_id": 10, "message_count": 0},
-        "2": {"channel": "@AniVerseClip", "message_id": 23, "message_count": 0},
+        "1": {"channel": "@AniVerseClip", "message_id": 10, "message_count": 12},
+        "2": {"channel": "@AniVerseClip", "message_id": 23, "message_count": 12},
         "3": {"channel": "@AniVerseClip", "message_id": 35, "message_count": 0},
         "4": {"channel": "@AniVerseClip", "message_id": 49, "message_count": 0},
         "5": {"channel": "@AniVerseClip", "message_id": 76, "message_count": 0},
@@ -95,11 +95,11 @@ async def handle_code(message: types.Message):
         "33": {"channel": "@AniVerseClip", "message_id": 638, "message_count": 0},
         "34": {"channel": "@AniVerseClip", "message_id": 665, "message_count": 0},
         "35": {"channel": "@AniVerseClip", "message_id": 696, "message_count": 0},
-        "36": {"channel": "@AniVerseClip", "message_id": 744, "message_count": 0},
-        "37": {"channel": "@AniVerseClip", "message_id": 776, "message_count": 0},
-        "38": {"channel": "@AniVerseClip", "message_id": 789, "message_count": 0},
-        "39": {"channel": "@AniVerseClip", "message_id": 802, "message_count": 0},
-        "40": {"channel": "@AniVerseClip", "message_id": 815, "message_count": 0},
+        "36": {"channel": "@AniVerseClip", "message_id": 744, "message_count": 23},
+        "37": {"channel": "@AniVerseClip", "message_id": 776, "message_count": 12},
+        "38": {"channel": "@AniVerseClip", "message_id": 789, "message_count": 12},
+        "39": {"channel": "@AniVerseClip", "message_id": 802, "message_count": 12},
+        "40": {"channel": "@AniVerseClip", "message_id": 815, "message_count": 10},
     }
 
     code = message.text.strip()
