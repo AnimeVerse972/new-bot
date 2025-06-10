@@ -59,61 +59,59 @@ async def handle_code(message: types.Message):
             await message.answer(f"⚠️ {channel} kanal tekshiruvida xatolik. Iltimos, keyinroq urinib ko‘ring.")
             return
 
-   anime_posts = {
-        "1": {"channel": "@AniVerseClip", "message_id": 10},
-        "2": {"channel": "@AniVerseClip", "message_id": 23},
-        "3": {"channel": "@AniVerseClip", "message_id": 35},
-        "4": {"channel": "@AniVerseClip", "message_id": 49},
-        "5": {"channel": "@AniVerseClip", "message_id": 76},
-        "6": {"channel": "@AniVerseClip", "message_id": 104},
-        "7": {"channel": "@AniVerseClip", "message_id": 121},
-        "8": {"channel": "@AniVerseClip", "message_id": 127},
-        "9": {"channel": "@AniVerseClip", "message_id": 131},
-        "10": {"channel": "@AniVerseClip", "message_id": 135},
-        "11": {"channel": "@AniVerseClip", "message_id": 148},
-        "12": {"channel": "@AniVerseClip", "message_id": 200},
-        "13": {"channel": "@AniVerseClip", "message_id": 216},
-        "14": {"channel": "@AniVerseClip", "message_id": 222},
-        "15": {"channel": "@AniVerseClip", "message_id": 235},
-        "16": {"channel": "@AniVerseClip", "message_id": 260},
-        "17": {"channel": "@AniVerseClip", "message_id": 360},
-        "18": {"channel": "@AniVerseClip", "message_id": 379},
-        "19": {"channel": "@AniVerseClip", "message_id": 392},
-        "20": {"channel": "@AniVerseClip", "message_id": 405},
-        "21": {"channel": "@AniVerseClip", "message_id": 430},
-        "22": {"channel": "@AniVerseClip", "message_id": 309},
-        "23": {"channel": "@AniVerseClip", "message_id": 343},
-        "24": {"channel": "@AniVerseClip", "message_id": 501},
-        "25": {"channel": "@AniVerseClip", "message_id": 514},
-        "26": {"channel": "@AniVerseClip", "message_id": 462},
-        "27": {"channel": "@AniVerseClip", "message_id": 527},
-        "28": {"channel": "@AniVerseClip", "message_id": 542},
-        "29": {"channel": "@AniVerseClip", "message_id": 555},
-        "30": {"channel": "@AniVerseClip", "message_id": 569},
-        "31": {"channel": "@AniVerseClip", "message_id": 586},
-        "32": {"channel": "@AniVerseClip", "message_id": 624},
-        "33": {"channel": "@AniVerseClip", "message_id": 638},
-        "34": {"channel": "@AniVerseClip", "message_id": 665},
-        "35": {"channel": "@AniVerseClip", "message_id": 696},
-        "36": {"channel": "@AniVerseClip", "message_id": 744},
-        "37": {"channel": "@AniVerseClip", "message_id": 776},
-        "38": {"channel": "@AniVerseClip", "message_id": 789},
-        "39": {"channel": "@AniVerseClip", "message_id": 802},
-        "40": {"channel": "@AniVerseClip", "message_id": 815},
-    }
+  anime_posts = {
+    "1": {"channel": "@AniVerseClip", "message_id": 10, "message_count": 12},
+    "2": {"channel": "@AniVerseClip", "message_id": 23, "message_count": 12},
+    "3": {"channel": "@AniVerseClip", "message_id": 35, "message_count": 0},
+    "4": {"channel": "@AniVerseClip", "message_id": 49, "message_count": 0},
+    "5": {"channel": "@AniVerseClip", "message_id": 76, "message_count": 0},
+    "6": {"channel": "@AniVerseClip", "message_id": 104, "message_count": 0},
+    "7": {"channel": "@AniVerseClip", "message_id": 121, "message_count": 0},
+    "8": {"channel": "@AniVerseClip", "message_id": 127, "message_count": 0},
+    "9": {"channel": "@AniVerseClip", "message_id": 131, "message_count": 0},
+    "10": {"channel": "@AniVerseClip", "message_id": 135, "message_count": 0},
+    "11": {"channel": "@AniVerseClip", "message_id": 148, "message_count": 0},
+    "12": {"channel": "@AniVerseClip", "message_id": 200, "message_count": 0},
+    "13": {"channel": "@AniVerseClip", "message_id": 216, "message_count": 0},
+    "14": {"channel": "@AniVerseClip", "message_id": 222, "message_count": 0},
+    "15": {"channel": "@AniVerseClip", "message_id": 235, "message_count": 0},
+    "16": {"channel": "@AniVerseClip", "message_id": 260, "message_count": 0},
+    "17": {"channel": "@AniVerseClip", "message_id": 360, "message_count": 0},
+    "18": {"channel": "@AniVerseClip", "message_id": 379, "message_count": 0},
+    "19": {"channel": "@AniVerseClip", "message_id": 392, "message_count": 0},
+    "20": {"channel": "@AniVerseClip", "message_id": 405, "message_count": 0},
+    "21": {"channel": "@AniVerseClip", "message_id": 430, "message_count": 0},
+    "22": {"channel": "@AniVerseClip", "message_id": 309, "message_count": 0},
+    "23": {"channel": "@AniVerseClip", "message_id": 343, "message_count": 0},
+    "24": {"channel": "@AniVerseClip", "message_id": 501, "message_count": 0},
+    "25": {"channel": "@AniVerseClip", "message_id": 514, "message_count": 0},
+    "26": {"channel": "@AniVerseClip", "message_id": 462, "message_count": 0},
+    "27": {"channel": "@AniVerseClip", "message_id": 527, "message_count": 0},
+    "28": {"channel": "@AniVerseClip", "message_id": 542, "message_count": 0},
+    "29": {"channel": "@AniVerseClip", "message_id": 555, "message_count": 0},
+    "30": {"channel": "@AniVerseClip", "message_id": 569, "message_count": 0},
+    "31": {"channel": "@AniVerseClip", "message_id": 586, "message_count": 0},
+    "32": {"channel": "@AniVerseClip", "message_id": 624, "message_count": 0},
+    "33": {"channel": "@AniVerseClip", "message_id": 638, "message_count": 0},
+    "34": {"channel": "@AniVerseClip", "message_id": 665, "message_count": 0},
+    "35": {"channel": "@AniVerseClip", "message_id": 696, "message_count": 0},
+    "36": {"channel": "@AniVerseClip", "message_id": 744, "message_count": 0},
+    "37": {"channel": "@AniVerseClip", "message_id": 776, "message_count": 0},
+    "38": {"channel": "@AniVerseClip", "message_id": 789, "message_count": 0},
+    "39": {"channel": "@AniVerseClip", "message_id": 802, "message_count": 0},
+    "40": {"channel": "@AniVerseClip", "message_id": 815, "message_count": 0},
+}
+
 
     code = message.text.strip()
 
     if code in anime_posts:
         channel = anime_posts[code]["channel"]
-        start_message_id = anime_posts[code]["start_message_id"]
-        for i in range(11):  # 11 ta xabar jo'natamiz (boshlang'ich xabar + keyingi 10 ta)
-            message_id = start_message_id + i
-            try:
-                await bot.copy_message(chat_id=user_id, from_chat_id=channel, message_id=message_id)
-            except Exception as e:
-                await message.answer(f"Xatolik yuz berdi: {e}")
-                break  # Agar xatolik yuz bersa, siklni to'xtatamiz
+        message_id = anime_posts[code]["message_id"]
+        try:
+            await bot.copy_message(chat_id=user_id, from_chat_id=channel, message_id=message_id)
+        except Exception as e:
+            await message.answer(f"Xatolik yuz berdi: {e}")
     elif code in ["📢 Reklama", "💼 Homiylik"]:
         if code == "📢 Reklama":
             await message.answer("Reklama uchun @DiyorbekPTMA ga murojat qiling.Faqat reklama boyicha!")
