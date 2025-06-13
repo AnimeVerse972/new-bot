@@ -100,6 +100,7 @@ async def handle_code(message: types.Message):
         "39": {"channel": "@AniVerseClip", "message_id": 802},
         "40": {"channel": "@AniVerseClip", "message_id": 815},
         "41": {"channel": "@AniVerseClip", "message_id": 835},
+        "42": {"channel": "@AniVerseClip", "message_id": 864},
     }
 
     code = message.text.strip()
