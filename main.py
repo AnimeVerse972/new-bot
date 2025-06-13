@@ -65,7 +65,7 @@ async def handle_code(message: types.Message):
         "4": {"channel": "@AniVerseClip", "message_id": 49},
         "5": {"channel": "@AniVerseClip", "message_id": 76},
         "6": {"channel": "@AniVerseClip", "message_id": 104},
-        "7": {"channel": "@AniVerseClip", "message_id": 121},
+        "7": {"channel": "@AniVerseClip", "message_id": 851},
         "8": {"channel": "@AniVerseClip", "message_id": 127},
         "9": {"channel": "@AniVerseClip", "message_id": 131},
         "10": {"channel": "@AniVerseClip", "message_id": 135},
@@ -99,6 +99,7 @@ async def handle_code(message: types.Message):
         "38": {"channel": "@AniVerseClip", "message_id": 789},
         "39": {"channel": "@AniVerseClip", "message_id": 802},
         "40": {"channel": "@AniVerseClip", "message_id": 815},
+        "41": {"channel": "@AniVerseClip", "message_id": 835},
     }
 
     code = message.text.strip()
