@@ -3,21 +3,18 @@ import logging
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
-from keep_alive import keep_alive
 
 # .env orqali token olish
 API_TOKEN = os.environ.get('BOT_TOKEN')
-CHANNELS = ['@AniVerseClip','@StudioNovaOfficial']
+CHANNELS = ['@AniVerseClip', '@StudioNovaOfficial']
 
-ADMINS = ['6486825926','7575041003']  # O‘rningizga o‘z Telegram ID'ingizni yozing
+ADMINS = ['6486825926', '7575041003']  # O‘rningizga o‘z Telegram ID'ingizni yozing
 
 logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=API_TOKEN, parse_mode="Markdown")
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
-
-keep_alive()
 
 @dp.message_handler(commands=['start'])
 async def start_handler(message: types.Message):
@@ -121,7 +118,7 @@ async def handle_code(message: types.Message):
         await bot.copy_message(chat_id=user_id, from_chat_id=channel, message_id=message_id, reply_markup=keyboard)
     elif code in ["📢 Reklama", "💼 Homiylik"]:
         if code == "📢 Reklama":
-            await message.answer("Reklama uchun @DiyorbekPTMA ga murojat qiling.Faqat reklama boyicha!")
+            await message.answer("Reklama uchun @DiyorbekPTMA ga murojat qiling. Faqat reklama boyicha!")
         elif code == "💼 Homiylik":
             await message.answer("Homiylik uchun karta 8800904257677885")
     else:
