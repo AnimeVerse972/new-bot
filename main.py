@@ -1,21 +1,31 @@
 import os
 import logging
-from aiogram import Bot, Dispatcher, executor, types
-from aiogram.contrib.fsm_storage.memory import MemoryStorage
+from aiogram import Bot, Dispatcher, types
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
+from aiogram.utils.executor import start_webhook
+from aiohttp import web
 
-# .env orqali token olish
-API_TOKEN = os.environ.get('BOT_TOKEN')
+# Muhit o'zgaruvchilaridan token va webhook URL
+API_TOKEN = os.environ.get("BOT_TOKEN")
+WEBHOOK_HOST = os.environ.get("WEBHOOK_URL")
+WEBHOOK_PATH = "/webhook"
+WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
+
+WEBAPP_HOST = "0.0.0.0"
+WEBAPP_PORT = int(os.environ.get("PORT", 8000))  # Render uchun kerak
+
+# Kanallar va adminlar
 CHANNELS = ['@AniVerseClip', '@StudioNovaOfficial']
+ADMINS = ['6486825926', '7575041003']
 
-ADMINS = ['6486825926', '7575041003']  # O‘rningizga o‘z Telegram ID'ingizni yozing
-
+# Bot va dispatcher
 logging.basicConfig(level=logging.INFO)
-
 bot = Bot(token=API_TOKEN, parse_mode="Markdown")
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
 
+# /start komandasi
 @dp.message_handler(commands=['start'])
 async def start_handler(message: types.Message):
     user_id = message.from_user.id
@@ -41,6 +51,7 @@ async def start_handler(message: types.Message):
 
     await message.answer("✅ Assalomu alaykum!\nAnime kodini yuboring (masalan: 1, 2, 3, ...)", reply_markup=reply_markup)
 
+# Kod bilan xabar yuborish
 @dp.message_handler()
 async def handle_code(message: types.Message):
     user_id = message.from_user.id
@@ -106,23 +117,39 @@ async def handle_code(message: types.Message):
     code = message.text.strip()
 
     if code in anime_posts:
-        channel = anime_posts[code]["channel"]
-        message_id = anime_posts[code]["message_id"]
-        
-        # "TOMOSHA QILISH" tugmasini yaratish
-        keyboard = InlineKeyboardMarkup()
-        watch_button = InlineKeyboardButton("TOMOSHA QILISH", url=f"https://t.me/{channel.strip('@')}/{message_id}")
-        keyboard.add(watch_button)
-        
-        # Xabarni tugma bilan birga yuborish
+        post = anime_posts[code]
+        channel = post["channel"]
+        message_id = post["message_id"]
+        keyboard = InlineKeyboardMarkup().add(
+            InlineKeyboardButton("TOMOSHA QILISH", url=f"https://t.me/{channel.strip('@')}/{message_id}")
+        )
         await bot.copy_message(chat_id=user_id, from_chat_id=channel, message_id=message_id, reply_markup=keyboard)
-    elif code in ["📢 Reklama", "💼 Homiylik"]:
-        if code == "📢 Reklama":
-            await message.answer("Reklama uchun @DiyorbekPTMA ga murojat qiling. Faqat reklama boyicha!")
-        elif code == "💼 Homiylik":
-            await message.answer("Homiylik uchun karta 8800904257677885")
+    elif code == "📢 Reklama":
+        await message.answer("Reklama uchun @DiyorbekPTMA ga murojat qiling. Faqat reklama boyicha!")
+    elif code == "💼 Homiylik":
+        await message.answer("Homiylik uchun karta 8800904257677885")
     else:
         await message.answer("❌ Bunday kod topilmadi. Iltimos, to‘g‘ri anime kodini yuboring.")
 
+# Webhook server start/stop funksiyasi
+async def on_startup(dp):
+    await bot.set_webhook(WEBHOOK_URL)
+
+async def on_shutdown(dp):
+    logging.warning("Shutting down..")
+    await bot.delete_webhook()
+    await dp.storage.close()
+    await dp.storage.wait_closed()
+    logging.warning("Bye!")
+
+# Run app
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
+    start_webhook(
+        dispatcher=dp,
+        webhook_path=WEBHOOK_PATH,
+        on_startup=on_startup,
+        on_shutdown=on_shutdown,
+        skip_updates=True,
+        host=WEBAPP_HOST,
+        port=WEBAPP_PORT,
+    )
