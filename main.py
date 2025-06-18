@@ -145,13 +145,13 @@ app.router.add_get("/", on_check)
 app.router.add_post(WEBHOOK_PATH, dp.process_updates)  # ✅ to‘g‘ri
 
 if __name__ == '__main__':
-    start_webhook(
-        dispatcher=dp,
-        webhook_path=WEBHOOK_PATH,
-        on_startup=on_startup,
-        on_shutdown=on_shutdown,
-        skip_updates=True,
-        host=WEBAPP_HOST,
-        port=WEBAPP_PORT,
-        web_app=app,
-    )
+  start_webhook(
+    dispatcher=dp,
+    webhook_path=WEBHOOK_PATH,
+    on_startup=on_startup,
+    on_shutdown=on_shutdown,
+    skip_updates=True,
+    host=WEBAPP_HOST,
+    port=WEBAPP_PORT,
+    app=app  # ✅ aiogram v2 uchun TO‘G‘RI argument
+)
