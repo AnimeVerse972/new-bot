@@ -61,7 +61,7 @@ async def handle_code(message: types.Message):
             await message.answer(f"⚠️ {channel} kanal tekshiruvida xatolik. Iltimos, keyinroq urinib ko‘ring.")
             return
 
-   anime_posts = {
+anime_posts = {
     "1": {"channel": "@AniVerseClip", "message_id": 10},
     "2": {"channel": "@AniVerseClip", "message_id": 23},
     "3": {"channel": "@AniVerseClip", "message_id": 35},
