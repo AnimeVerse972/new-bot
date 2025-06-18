@@ -142,7 +142,7 @@ async def on_shutdown(dp):
 
 app = web.Application()
 app.router.add_get("/", on_check)
-app.router.add_post(WEBHOOK_PATH, dp.router)
+app.router.add_post(WEBHOOK_PATH, dp.process_updates)  # ✅ to‘g‘ri
 
 if __name__ == '__main__':
     start_webhook(
